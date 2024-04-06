@@ -421,7 +421,8 @@ impl From<Transform> for ColliderTransform {
 pub struct Sensor;
 
 /// The Axis-Aligned Bounding Box of a [collider](Collider).
-#[derive(Clone, Copy, Component, Debug, PartialEq)]
+#[derive(Clone, Copy, Component, Debug, PartialEq, Reflect)]
+#[reflect(Component)]
 #[cfg_attr(feature = "serialize", derive(serde::Serialize, serde::Deserialize))]
 pub struct ColliderAabb {
     /// The minimum point of the AABB.
@@ -429,6 +430,7 @@ pub struct ColliderAabb {
     /// The maximum point of thr AABB.
     pub max: Vector,
 }
+
 
 impl ColliderAabb {
     /// Creates a new [`ColliderAabb`] from the given `center` and `half_size`.
